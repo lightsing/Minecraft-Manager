@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Minecraft Server</title>
+</head>
+<body>
+<h1>Minecraft Server</h1>
+<h2>Mod Management</h2>
+<table>
+  <tr>
+    <th/>
+    <th>Mod</th>
+    <th>Action</th>
+  </tr>
+  {% for mod in mods %}
+  <tr>
+    <td><input type="checkbox" name="{{ mod }}" /></td>
+    <td><a href="/mods/{{ mod }}">{{ mod }}</a></td>
+    <td>
+      <input type="button" name="{{ mod }}" value="Rename"/>
+      <input type="button" name="{{ mod }}" value="Delete"/>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+  <form method="POST" enctype="multipart/form-data" action="{{ url_for('mods_upload') }}">
+    <input type="file" name="mods">
+    <input type="submit" value="Upload"/>
+  </form>
+
+</body>
+</html>
