@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="{{ url_for('static', filename='node_modules/jquery/dist/jquery.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='dashboard.js')}}"></script>
   <title>Minecraft Server</title>
 </head>
 <body>
 <h1>Minecraft Server</h1>
+
 <h2>Mod Management</h2>
-<table>
+<table id="mods">
   <tr>
     <th/>
     <th>Mod</th>
@@ -26,10 +29,14 @@
   </tr>
   {% endfor %}
 </table>
-  <form method="POST" enctype="multipart/form-data" action="{{ url_for('mods_upload') }}">
-    <input type="file" name="mods">
-    <input type="submit" value="Upload"/>
-  </form>
+<form method="POST" enctype="multipart/form-data" action="{{ url_for('mods_upload') }}">
+  <input type="file" name="mods">
+  <input type="submit" value="Upload"/>
+</form>
 
+
+<h3>Console</h3>
+<textarea id="console-output" readonly></textarea>
+<input type="text" name="command"/>
 </body>
 </html>

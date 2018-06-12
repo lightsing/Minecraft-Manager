@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/lightsing/Minecraft-Manager/issues"
   },
-  "homepage": "https://github.com/lightsing/Minecraft-Manager#readme"
+  "homepage": "https://github.com/lightsing/Minecraft-Manager#readme",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
 }
